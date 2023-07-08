@@ -1,25 +1,12 @@
-import Button from "./Button";
+import Categories from "./Categories";
 import MenuItem from "./MenuItem";
+import Title from "./Title";
 
-export default function Menu({ menu, filterItems }) {
-  const btnData = [
-    { text: "all" },
-    { text: "breakfast" },
-    { text: "lunch" },
-    { text: "shakes" },
-  ];
-
+export default function Menu({ menu, filterItems, categories }) {
   return (
     <section>
-      <div className="title  menu-title">
-        <h2>our menu</h2>
-        <div className="title-underline"></div>
-      </div>
-      <div className="btn-container">
-        {btnData.map((btn, i) => {
-          return <Button key={i} func={filterItems} {...btn} />;
-        })}
-      </div>
+      <Title text={"our menu"} />
+      <Categories filterItems={filterItems} categories={categories} />
       <div className="menu s-c">
         {menu.map((item) => {
           return <MenuItem key={item.id} {...item} />;
